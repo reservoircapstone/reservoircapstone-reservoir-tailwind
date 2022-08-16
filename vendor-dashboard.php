@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/dist/output.css" rel="stylesheet">
+    <script src="node_modules/chart.js/dist/chart.js"></script>
+    <script src="node_modules/countup.js/dist/countUp.min.js"></script>
     <link href="./resources/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-[#edf2f9] font-Poppins m-0 p-0">
-    <main class="flex relative">
-
-        <aside id="sidebar" class="hidden md:fixed md:overflow-x-hidden md:h-full md:block md:w-48 lg:w-64 bg-sky-200 md:rounded-sm">
+    <main class="">
+        <aside id="sidebar" class="hidden md:fixed overflow-auto md:h-full md:block md:w-48 lg:w-64 bg-sky-100 md:rounded-sm">
             <div id="icons" class="px-6 pt-8">
                 <div class="flex justify-between">
                     <span class="material-symbols-outlined bg-blue-500 text-white p-1 rounded-md">
@@ -31,7 +32,7 @@
                             search
                         </span>
                     </div>
-                    <input type="text" class="w-full rounded pl-8 px-4 py-2.5 text-xs font-light bg-gray-200 text-[#969798] placeholder-[#666666]" placeholder="Search">
+                    <input type="text" class="w-full rounded pl-8 px-4 py-2.5 text-xs font-light bg-gray-100 text-[#969798] placeholder-[#666666]" placeholder="Search">
                 </div>
             </div>
             <div id="line" class="px-6 pt-4">
@@ -44,7 +45,7 @@
                             <span class="material-symbols-outlined">
                                 dashboard
                             </span>
-                        </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400 active">Dashboard</a>
+                        </div><a href="vendor-dashboard.php" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400 active">Dashboard</a>
                     </li>
                     <li id="store" class="">
                         <div class="relative text-[#666666] hover:text-white flex justify-between">
@@ -153,14 +154,354 @@
             </div>
         </aside>
 
+        <header class="w-auto p-[20px] bg-sky-100 shadow-md shadow-sky-200 justify-between md:ml-[190px] lg:ml-[250px]">
+            <div id="navItems" class="flex space-x-10 items-center justify-between">
+                <img class="w-7 h-7" src="./resources/img/logo.png" alt="">
+                <span class="flex absolute justify-start font-bold text-xl">RESERVOIR</span>
+                <div class="w-11 h-11 flex flex-row-reverse items-center">
+                    <span class=" material-symbols-outlined cursor-pointer">
+                        notifications
+                    </span>
+                </div>
+            </div>
+        </header>
+
+
+        <div id="content" class="space-y-4 md:ml-[220px] md:mr-5 md:grid md:grid-cols-4 md:space-x-2 lg:ml-[280px] lg:gap-4 lg:mt-5">
+            <!-- Weekly Sales -->
+            <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                    <p class="text-sm bottom-4 relative">Weekly Sales</p>
+                    <div id="weeklySales" class="text-center text-3xl text-gray-600">₱20k</div>
+                </div>
+                <div class="absolute w-28 right-0 m-6 md:hidden lg:flex lg:items-center lg:m-6 lg:w-28">
+                    <img src="./resources/img/sales.svg" alt="">
+                </div>
+            </div>
+            <!-- Total Orders -->
+            <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                    <p class="text-sm relative bottom-4">Total Orders</p>
+                    <div id="totalOrders" class="text-center text-3xl text-gray-600">10.4K</div>
+                </div>
+                <div class="absolute w-24 right-0 m-6 md:hidden lg:flex lg:items-center lg:m-6 lg:w-24">
+                    <img src="./resources/img/orders.svg" alt="">
+                </div>
+            </div>
+            <!-- Total Sales -->
+            <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                    <p class="text-sm relative bottom-4">Total Sales</p>
+                    <div id="totalSales" class="text-center text-3xl text-gray-600">₱90.4K</div>
+                </div>
+                <div class="absolute w-[95px] right-0 m-6 md:hidden lg:flex lg:items-center lg:m-6 lg:w-24">
+                    <img src="./resources/img/totalSales.svg" alt="">
+                </div>
+            </div>
+            <!-- Total Customers -->
+            <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                    <p class="text-sm relative bottom-4">Total Customers</p>
+                    <div id="totalCustomers" class="text-center text-3xl text-gray-600">₱5.4K</div>
+                </div>
+                <div class="absolute w-24 right-0 m-6 md:hidden lg:flex lg:items-center lg:m-6 lg:w-24">
+                    <img src="./resources/img/customers.svg" alt="">
+                </div>
+            </div>
+            <!-- Line Chart -->
+            <div id="chart1" class="relative h-auto w-full col-span-2 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <canvas id="lineChart" style="width:100%;max-width:700px;"></canvas>
+            </div>
+            <!-- Bar Chart -->
+            <div id=" chart2" class="h-auto col-span-2 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <canvas id="weeklySalesChart" style="width:100%;max-width:700px;"></canvas>
+            </div>
+            <!-- Table Orders Sumamry -->
+            <div class="h-auto col-span-4 relative bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="flex justify-center p-5 bg-[#e0f2fe]">
+                    <h2 class="font-bold text-gray-600 text-xl">Orders Summary</h2>
+                </div>
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full">
+                                    <thead class="border-b">
+                                        <tr>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Order#
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Name
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Order
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Quantity
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Address
+                                            </th>
+                                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                                Payment
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b hover:bg-blue-100">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Jeffrey Canlas
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Alkaline
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                4
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Sta. Teresita
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                COD
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-blue-100">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Elthon Cayetano
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Distilled
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                5
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Sapang Bato
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                E-Wallet
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-blue-100">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Ilah Zamora
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Mineral
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                10
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Lourdes Sur
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                GCASH
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-blue-100">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Brian Galang
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Purified
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                14
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Lourdes Sur East
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                E-Wallet
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b hover:bg-blue-100">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Bhrandel Perez
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Alkaline
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                6
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                Pulung Bulu
+                                            </td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                COD
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="h-auto w-full relative text-center justify-center bg-white rounded-lg p-5 shadow-slate-350 shadow-lg">
+                <span class="mb-40">Products Sales</span>
+                <canvas id="pieChart" style="width:100%;max-width:600px;"></canvas>
+            </div>
+
+            <div class="h-auto w-auto col-span-3 relative text-center justify-center bg-white rounded-lg p-5 shadow-slate-350 shadow-lg">
+            </div>
+        </div>
+        </div>
+
     </main>
 
+    <!----------------- SCRIPTS ----------------->
+    <!-- chart.js script -->
+    <script>
+        const bar = document.getElementById('weeklySalesChart');
+        const weeklySalesChart = new Chart(bar, {
+            type: 'bar',
+            data: {
+                labels: ['Monday', 'Tueday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'Weekly Sales',
+                    data: [12, 19, 13, 25, 22, 16, 19],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 102, 85, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 102, 85, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-    <!-- Scripts -->
+        const line = document.getElementById('lineChart');
+        const lineChart = new Chart(line, {
+            type: 'line',
+            data: {
+                labels: ['Monday', 'Tueday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'Weekly Customers',
+                    data: [32, 26, 35, 22, 40, 15, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 102, 85, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 102, 85, 0.2)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const pie = document.getElementById('pieChart');
+        const pieChart = new Chart(pie, {
+            type: 'pie',
+            data: {
+                labels: ['Alkaline', 'Distilled', 'Purified', 'Mineral'],
+                datasets: [{
+                    data: [32, 26, 35, 22],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {}
+        });
+    </script>
+
+
+    <!-- CountUp,js script comment this if not needed -->
+    <script>
+        const weeklySales = new CountUp("weeklySales", 0, 20000);
+        weeklySales.start();
+
+        const totalOrders = new CountUp("totalOrders", 0, 12456);
+        totalOrders.start();
+
+        const totalSales = new CountUp("totalSales", 0, 94456);
+        totalSales.start();
+
+        const totalCustomers = new CountUp("totalCustomers", 0, 12589);
+        totalCustomers.start();
+    </script>
+
+    <!-- googleMaps js Uncomment if needed add div with id="map" to show
+    <script>
+        function initMap() {
+            var location = {
+                lat: 15.165380,
+                lng: 120.608398
+            };
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script> -->
+    <!--Google Map API <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDibHljaeCzRvVZwduIJpCV4lcX6zhuy2k&callback=initMap"></script> -->
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="node_modules/countup.js/dist/countUp.min.js"></script>
 </body>
 
 </html>
