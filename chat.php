@@ -290,7 +290,6 @@
                 </div>
             </div>
 
-
             <!-- Right Side -->
             <div class="h-[600px] relative bg-white rounded-md shadow-md col-span-3">
                 <!-- Chat Pane header -->
@@ -329,6 +328,7 @@
             </div>
         </div>
     </main>
+
     <script src=" node_modules/list.js/dist/list.min.js"></script>
     <script src="node_modules/chart.js/dist/chart.js"></script>
     <script src="node_modules/countup.js/dist/countUp.min.js"></script>
