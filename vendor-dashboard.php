@@ -13,151 +13,137 @@
 </head>
 
 <body class="bg-[#edf2f9] font-Poppins m-0 p-0">
-    <main class="">
-        <aside id="sidebar" class="hidden md:fixed overflow-auto md:h-full md:block md:w-48 lg:w-64 bg-sky-100 md:rounded-sm">
-            <div id="icons" class="px-6 pt-8">
-                <div class="flex justify-between">
-                    <span class="material-symbols-outlined bg-blue-500 text-white p-1 rounded-md">
-                        water_drop
-                    </span>
-                    <span class="material-symbols-outlined text-black cursor-pointer" onclick="closeNav()">
-                        arrow_back
+    <aside id="sidebar" class="hidden md:overflow-y-scroll md:scrollbar md:fixed overflow-auto md:h-full md:block md:w-48 lg:w-64 bg-sky-100 md:rounded-sm">
+        <div id="icons" class="px-6 pt-8">
+            <div class="flex justify-between">
+                <span class="material-symbols-outlined bg-blue-500 text-white p-1 rounded-md">
+                    water_drop
+                </span>
+                <span class="material-symbols-outlined text-black cursor-pointer" onclick="closeNav()">
+                    arrow_back
+                </span>
+            </div>
+        </div>
+        <div id="searchBar" class="px-6 pt-4">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <span class="material-symbols-outlined text-black" style="font-size: 20px;">
+                        search
                     </span>
                 </div>
+                <input type="text" class="w-full rounded pl-8 px-4 py-2.5 text-xs font-light bg-gray-100 text-[#969798] placeholder-[#666666]" placeholder="Search">
             </div>
-            <div id="searchBar" class="px-6 pt-4">
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <span class="material-symbols-outlined text-black" style="font-size: 20px;">
-                            search
+        </div>
+        <div id="line" class="px-6 pt-4">
+            <hr class="border-[#353535] px-6 pt-4">
+        </div>
+        <div id="navItems" class="px-6 pt-4">
+            <ul class="flex flex-col space-y-2">
+                <li id="dashboard" class="relative text-[#666666] hover:text-white">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                        <span class="material-symbols-outlined">
+                            dashboard
                         </span>
+                    </div><a href="vendor-dashboard.php" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400 active">Dashboard</a>
+                </li>
+                <li id="store" class="">
+                    <div class="relative text-[#666666] hover:text-white flex justify-between">
+                        <div class="flex items-center w-full">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                <span class="material-symbols-outlined">
+                                    store
+                                </span>
+                            </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Store</a>
+                        </div>
+                        <button class="absolute right-0 p-1">
+                            <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
+                                expand_more
+                            </span>
+                        </button>
                     </div>
-                    <input type="text" class="w-full rounded pl-8 px-4 py-2.5 text-xs font-light bg-gray-100 text-[#969798] placeholder-[#666666]" placeholder="Search">
-                </div>
-            </div>
-            <div id="line" class="px-6 pt-4">
-                <hr class="border-[#353535] px-6 pt-4">
-            </div>
-            <div id="navItems" class="px-6 pt-4">
-                <ul class="flex flex-col space-y-2">
-                    <li id="dashboard" class="relative text-[#666666] hover:text-white">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                            <span class="material-symbols-outlined">
-                                dashboard
+                    <div class="pt-2 pl-4">
+                        <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
+                            <li><a href="store-profile.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Store Profile</a></li>
+                            <li><a href="push-schedule.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Push Schedule</a></li>
+                            <li><a href="pull-orders.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Pull Orders</a></li>
+                            <li><a href="pos.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Point of Sale</a></li>
+                            <li><a href="subscription.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Subscription</a></li>
+                            <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Advertise</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="products" class="">
+                    <div class="relative text-[#666666] hover:text-white flex justify-between">
+                        <div class="flex items-center w-full">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                <span class="material-symbols-outlined">
+                                    inventory_2
+                                </span>
+                            </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Products</a>
+                        </div>
+                        <button class="absolute right-0 p-1">
+                            <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
+                                expand_more
                             </span>
-                        </div><a href="vendor-dashboard.php" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400 active">Dashboard</a>
-                    </li>
-                    <li id="store" class="">
-                        <div class="relative text-[#666666] hover:text-white flex justify-between">
-                            <div class="flex items-center w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                                    <span class="material-symbols-outlined">
-                                        store
-                                    </span>
-                                </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Store</a>
-                            </div>
-                            <button class="absolute right-0 p-1">
-                                <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
-                                    expand_more
+                        </button>
+                    </div>
+                    <div class="pt-2 pl-4">
+                        <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
+                            <li><a href="products-list.php" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Products List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="finance" class="">
+                    <div class="relative text-[#666666] hover:text-white flex justify-between">
+                        <div class="flex items-center w-full">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                <span class="material-symbols-outlined">
+                                    payments
                                 </span>
-                            </button>
+                            </div><a href="wallet.php" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Finance</a>
                         </div>
-                        <div class="pt-2 pl-4">
-                            <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Store Profile</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Store Operations</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Push Schedule</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Push Orders</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Point of Sale</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Subscription</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Advertise</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li id="products" class="">
-                        <div class="relative text-[#666666] hover:text-white flex justify-between">
-                            <div class="flex items-center w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                                    <span class="material-symbols-outlined">
-                                        inventory_2
-                                    </span>
-                                </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Products</a>
-                            </div>
-                            <button class="absolute right-0 p-1">
-                                <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
-                                    expand_more
-                                </span>
-                            </button>
-                        </div>
-                        <div class="pt-2 pl-4">
-                            <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Modify Products</a></li>
 
-                            </ul>
-                        </div>
-                    </li>
-                    <li id="finance" class="">
-                        <div class="relative text-[#666666] hover:text-white flex justify-between">
-                            <div class="flex items-center w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                                    <span class="material-symbols-outlined">
-                                        payments
-                                    </span>
-                                </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Finance</a>
-                            </div>
-                            <button class="absolute right-0 p-1">
-                                <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
-                                    expand_more
+                </li>
+                <li id="chat" class="relative text-[#666666] hover:text-white">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                        <span class="material-symbols-outlined">
+                            chat
+                        </span>
+                    </div><a href="chat.php" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Chat</a>
+                </li>
+                <li id="insights" class="">
+                    <div class="relative text-[#666666] hover:text-white flex justify-between">
+                        <div class="flex items-center w-full">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
+                                <span class="material-symbols-outlined">
+                                    insights
                                 </span>
-                            </button>
+                            </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Insights</a>
                         </div>
-                        <div class="pt-2 pl-4">
-                            <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Internal Wallet</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Linked Accounts</a></li>
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Transaction History</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li id="chat" class="relative text-[#666666] hover:text-white">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                            <span class="material-symbols-outlined">
-                                chat
+                        <button class="absolute right-0 p-1">
+                            <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
+                                expand_more
                             </span>
-                        </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Chat</a>
-                    </li>
-                    <li id="insights" class="">
-                        <div class="relative text-[#666666] hover:text-white flex justify-between">
-                            <div class="flex items-center w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                                    <span class="material-symbols-outlined">
-                                        insights
-                                    </span>
-                                </div><a href="#" class="inline-block w-full px-4 py-2 pl-9 pr-4 rounded text-xs hover:bg-blue-400">Insights</a>
-                            </div>
-                            <button class="absolute right-0 p-1">
-                                <span class="material-symbols-outlined flex items-center" style="font-size: 18px;">
-                                    expand_more
-                                </span>
-                            </button>
-                        </div>
-                        <div class="pt-2 pl-4">
-                            <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
-                                <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Dashboard</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="hr" class="px-6 pt-4 mb-2 pb-5">
-                <hr class="border-[#353535]" />
-            </div>
-        </aside>
+                        </button>
+                    </div>
+                    <div class="pt-2 pl-4">
+                        <ul class="flex flex-col pl-2 text-[#666666] border-l border-[#353535]">
+                            <li><a href="#" class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-blue-400 hover:text-white">Dashboard</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="hr" class="px-6 pt-4 mb-2 pb-5">
+            <hr class="border-[#353535]" />
+        </div>
+    </aside>
 
-        <header class="w-auto p-[20px] bg-sky-100 shadow-md shadow-sky-200 justify-between md:ml-[190px] lg:ml-[250px]">
+    <main class="md:ml-[190px] lg:ml-[255px]">
+        <header class="w-full p-[20px] bg-sky-100 shadow-md shadow-sky-200 justify-between">
             <div id="navItems" class="flex space-x-10 items-center justify-between">
                 <img class="w-7 h-7" src="./resources/img/logo.png" alt="">
-                <span class="flex absolute justify-start font-bold text-xl">RESERVOIR</span>
+                <span class="flex font-Righteous absolute justify-start font-bold text-xl">RESERVOIR</span>
                 <div class="w-11 h-11 flex flex-row-reverse items-center">
                     <span class=" material-symbols-outlined cursor-pointer">
                         notifications
@@ -167,20 +153,20 @@
         </header>
 
 
-        <div id="content" class="space-y-4 md:ml-[220px] md:mr-5 md:grid md:grid-cols-4 md:space-x-2 lg:ml-[280px] lg:gap-4 lg:mt-5">
+        <div id="content" class="space-y-4 md:gap-x-2 md:mr-5 md:grid md:grid-cols-4 md:mx-4 lg:gap-4 lg:mt-5">
             <!-- Weekly Sales -->
-            <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
-                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+            <div class="h-[120px] flex justify-between items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
+                <div class="absolute z-10 p-5 m-7 mt-12 sm:p-0">
                     <p class="text-sm bottom-4 relative">Weekly Sales</p>
                     <div id="weeklySales" class="text-center text-3xl text-gray-600">₱20k</div>
                 </div>
-                <div class="absolute w-28 right-0 m-6 md:hidden lg:flex lg:items-center lg:m-6 lg:w-28">
+                <div class="absolute w-28 right-0 m-6 md:hidden md:w-2 lg:flex lg:items-center lg:m-6 lg:w-28">
                     <img src="./resources/img/sales.svg" alt="">
                 </div>
             </div>
             <!-- Total Orders -->
             <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
-                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                <div class="absolute z-10 p-5 m-7 mt-12 sm:p-0">
                     <p class="text-sm relative bottom-4">Total Orders</p>
                     <div id="totalOrders" class="text-center text-3xl text-gray-600">10.4K</div>
                 </div>
@@ -190,7 +176,7 @@
             </div>
             <!-- Total Sales -->
             <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
-                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                <div class="absolute z-10 p-5 m-7 mt-12 sm:p-0">
                     <p class="text-sm relative bottom-4">Total Sales</p>
                     <div id="totalSales" class="text-center text-3xl text-gray-600">₱90.4K</div>
                 </div>
@@ -200,7 +186,7 @@
             </div>
             <!-- Total Customers -->
             <div class="h-[120px] flex items-center relative mt-4 bg-white rounded-lg shadow-slate-350 shadow-lg">
-                <div class="absolute p-5 m-7 mt-12 sm:p-0">
+                <div class="absolute z-10 p-5 m-7 mt-12 sm:p-0">
                     <p class="text-sm relative bottom-4">Total Customers</p>
                     <div id="totalCustomers" class="text-center text-3xl text-gray-600">₱5.4K</div>
                 </div>
@@ -217,7 +203,7 @@
                 <canvas id="weeklySalesChart" style="width:100%;max-width:700px;"></canvas>
             </div>
             <!-- Table Orders Sumamry -->
-            <div class="h-auto col-span-4 relative bg-white rounded-lg shadow-slate-350 shadow-lg">
+            <div class="h-auto overflow-x-hidden col-span-4 relative bg-white rounded-lg shadow-slate-350 shadow-lg">
                 <div class="flex justify-center p-5 bg-[#e0f2fe]">
                     <h2 class="font-bold text-gray-600 text-xl">Orders Summary</h2>
                 </div>
@@ -354,8 +340,8 @@
             </div>
 
             <div class="h-auto w-auto col-span-3 relative text-center justify-center bg-white rounded-lg p-5 shadow-slate-350 shadow-lg">
+                <canvas id="revenueChart" style="width:100%;max-width:800px;"></canvas>
             </div>
-        </div>
         </div>
 
     </main>
@@ -462,6 +448,40 @@
                 }]
             },
             options: {}
+        });
+
+        const ctx = document.getElementById('revenueChart');
+        const revenueChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Orders',
+                    data: [1500, 1400, 1200, 1550, 1100, 1000, 1500, 1400, 1200, 1550, 1100, 1000],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Earnings',
+                    data: [23000, 20000, 15000, 17000, 13000, 20000, 23000, 18000, 15000, 7000, 15000, 10000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Refunds',
+                    data: [5000, 4000, 5000, 7000, 3000, 2000, 3000, 8000, 5000, 1000, 5000, 4000],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
     </script>
 
